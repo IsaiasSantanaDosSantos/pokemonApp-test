@@ -34,7 +34,8 @@
   color: #000000;
 }
 
-.navbarItens a:active {
+.navbarItens a:active,
+.navbarItens a:hover {
   padding-bottom: 7px;
   border-bottom: 3px solid #212121;
   font-family: "Open Sans";
