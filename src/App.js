@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Pokemons from './pages/Pokemons';
 import Contato from './pages/Contato';
@@ -8,8 +8,8 @@ import Container from '@material-ui/core/Container';
 export const App = () => {
   return (
     <Router>
+      <Navbar />
       <Container>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/pokemons" element={<Pokemons />}></Route>
