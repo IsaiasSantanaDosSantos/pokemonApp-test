@@ -15,8 +15,6 @@ export const HomeContainer = styled.div`
     width: 465px;
     padding-top: 105px;
     margin-left: 165px;
-
-    border: 1px solid black;
   }
   h1 {
     font-family: "Inter";
@@ -72,8 +70,6 @@ export const HomeContainer = styled.div`
     float: right;
     margin-top: 67px;
     width: 793px;
-
-    border: 1px solid blue;
   }
 
   article img {
