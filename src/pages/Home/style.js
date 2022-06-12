@@ -5,13 +5,17 @@ export const HomeContainer = styled.div`
   padding: 0px;
   height: 100%;
 
+  .homeContainer {
+    width: 100%;
+    justify-content: space-between;
+  }
   section {
-    display: block;
+    display: inline-block;
     float: left;
     width: 465px;
-    height: 100%;
     padding-top: 105px;
     margin-left: 165px;
+
     border: 1px solid black;
   }
   h1 {
@@ -64,26 +68,30 @@ export const HomeContainer = styled.div`
   }
 
   article {
-    display: flex;
-    justify-content: right;
+    display: inline-block;
+    float: right;
     margin-top: 67px;
-    width: 865px;
+    width: 793px;
+
+    border: 1px solid blue;
   }
 
   article img {
     width: 793px;
-    border: 1px solid blue;
   }
 
   /* ###### MEDIA QUERY ##### */
+
   @media (max-width: 576px) {
+    .homeContainer {
+      display: flex;
+      flex-direction: column;
+    }
     section {
       width: 100%;
-      padding-top: 29px;
       margin: auto;
-      padding-left: 26px;
-      padding-right: 26px;
-      height: 283px;
+      padding-top: 10px;
+      order: 2;
     }
     h1 {
       position: relative;
@@ -114,19 +122,161 @@ export const HomeContainer = styled.div`
 
     article {
       width: 100%;
+      margin-top: 0px;
+      order: 1;
     }
     article img {
       width: 100%;
     }
   }
   @media (max-width: 768px) {
+    .homeContainer {
+      display: flex;
+      flex-direction: column;
+    }
     section {
-      width: 200px;
-      padding-top: 29px;
+      width: 100%;
       margin: auto;
-      padding-left: 26px;
-      padding-right: 26px;
-      height: 283px;
+      margin-top: 0px;
+      padding: 10px 10px 30px 10px;
+      order: 2;
+    }
+    article {
+      width: 100%;
+      margin-top: 0px;
+      order: 1;
+    }
+    article img {
+      width: 100%;
+    }
+    h1 {
+      position: relative;
+      font-size: 56px;
+      line-height: 61px;
+      width: 477px;
+      margin: auto;
+    }
+    .homeRetangulo {
+      top: 90px;
+      left: 144px;
+      width: 293px;
+      height: 25px;
+    }
+    p {
+      line-height: 23px;
+      letter-spacing: 0px;
+      width: 384px;
+      margin: auto;
+      margin-top: 23px;
+      margin-bottom: 25px;
+    }
+    .homeBtn {
+      width: 232px;
+      margin: auto;
+      margin-top: 43px;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 992px) {
+    .homeContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    section {
+      width: 100%;
+      margin: auto;
+      margin-top: 0px;
+      padding: 10px 10px 30px 10px;
+      order: 2;
+    }
+    article {
+      width: 100%;
+      margin-top: 0px;
+      order: 1;
+    }
+    article img {
+      width: 100%;
+    }
+    h1 {
+      position: relative;
+      font-size: 56px;
+      line-height: 61px;
+      width: 477px;
+      margin: auto;
+    }
+    .homeRetangulo {
+      top: 90px;
+      left: 144px;
+      width: 293px;
+      height: 25px;
+    }
+    p {
+      line-height: 23px;
+      letter-spacing: 0px;
+      width: 384px;
+      margin: auto;
+      margin-top: 23px;
+      margin-bottom: 25px;
+    }
+    .homeBtn {
+      width: 232px;
+      margin: auto;
+      margin-top: 43px;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .homeContainer {
+      display: flex;
+      width: 100%;
+    }
+    section {
+      display: block;
+      float: left;
+      width: 477px;
+      padding-top: 105px;
+    }
+    h1 {
+      position: relative;
+      font-size: 56px;
+      line-height: 61px;
+      width: 471px;
+      margin: auto;
+    }
+    .homeRetangulo {
+      top: 90px;
+      left: 144px;
+      width: 293px;
+      height: 25px;
+    }
+    article {
+      width: 100%;
+      margin-top: 67px;
+    }
+  }
+
+  @media (min-width: 1201px) {
+    section {
+      margin-left: 75px;
+    }
+    article {
+      width: 657px;
+      margin-top: 67px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    section {
+      margin-left: 165px;
+    }
+    article {
+      width: 768px;
+    }
+  }
+  @media (min-width: 1500px) {
+    article {
+      width: 793px;
     }
   }
 `;
