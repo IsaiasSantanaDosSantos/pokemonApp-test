@@ -93,7 +93,7 @@ export const HomeContainer = styled.div`
       position: relative;
       font-size: 32px;
       line-height: 38px;
-      width: 273px;
+      width: 275px;
       margin: auto;
     }
     .homeRetangulo {
@@ -149,7 +149,7 @@ export const HomeContainer = styled.div`
       position: relative;
       font-size: 56px;
       line-height: 61px;
-      width: 477px;
+      width: 479px;
       margin: auto;
     }
     .homeRetangulo {
@@ -198,7 +198,7 @@ export const HomeContainer = styled.div`
       position: relative;
       font-size: 56px;
       line-height: 61px;
-      width: 477px;
+      width: 479px;
       margin: auto;
     }
     .homeRetangulo {
@@ -231,34 +231,65 @@ export const HomeContainer = styled.div`
       display: block;
       float: left;
       width: 477px;
-      padding-top: 105px;
+      padding-top: 70px;
+      margin-left: 105px;
     }
     h1 {
       position: relative;
-      font-size: 56px;
-      line-height: 61px;
-      width: 471px;
-      margin: auto;
+      font-size: 37px;
+      line-height: 46px;
+      width: 342px;
+    }
+
+    p {
+      line-height: 24px;
+      margin-top: 18px;
     }
     .homeRetangulo {
-      top: 90px;
-      left: 144px;
-      width: 293px;
-      height: 25px;
+      top: 68px;
+      left: 95px;
+      width: 190px;
+      height: 17px;
     }
     article {
       width: 100%;
       margin-top: 67px;
     }
+    article img {
+      width: 100%;
+    }
   }
 
   @media (min-width: 1201px) {
     section {
-      margin-left: 75px;
+      margin-left: 40px;
+      width: 394px;
+    }
+    h1 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 800;
+      width: 363px;
+      font-size: 42px;
+      line-height: 58px;
+      color: #282828;
+    }
+    .homeRetangulo {
+      top: 86px;
+      left: 110px;
+      width: 222px;
+      height: 21px;
+    }
+
+    p {
+      line-height: 31px;
     }
     article {
-      width: 657px;
+      width: 764px;
       margin-top: 67px;
+    }
+    article img {
+      width: 100%;
     }
   }
 

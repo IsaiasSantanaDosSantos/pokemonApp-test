@@ -28,30 +28,34 @@ export const HeaderContainer = styled.div`
     margin: 0;
     margin-top: 19px;
     margin-right: 96px;
-}
+  }
 
-.headerItens {
-  list-style: none;
-}
+  .headerItens {
+    list-style: none;
+  }
 
-.headerItens a {
-  text-decoration: none;
-  font-style: normal;
-  font-size: 25px;
-  line-height: 34px;
-  color: #000000;
-}
+  .headerItens a {
+    text-decoration: none;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 34px;
+    color: #000000;
+  }
 
-.headerItens a:active,
-.headerItens a:hover {
-  padding-bottom: 7px;
-  border-bottom: 3px solid #212121;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 34px;
-  color: #212121;
-}
+  .headerItens a:active,
+  .headerItens a:hover {
+    padding-bottom: 7px;
+    border-bottom: 3px solid #212121;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 34px;
+    color: #212121;
+  }
+
+  /*  ### MEDIA QUERY  ### */
+  @media (min-width: 993px) {
+
   }
 `;
