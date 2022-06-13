@@ -14,7 +14,7 @@ export const HomeContainer = styled.div`
     float: left;
     width: 465px;
     padding-top: 105px;
-    margin-left: 165px;
+    margin-left: 4%;
   }
   h1 {
     font-family: "Inter";
@@ -64,16 +64,26 @@ export const HomeContainer = styled.div`
     height: 66px;
     border: none;
   }
+  .homeBtn button {
+    cursor: pointer;
+  }
+  button:active {
+border: 1px solid #48d0b0;
+color:  #48d0b0;
+background: #ffffff;
+transition: 1s;
+
+  }
 
   article {
     display: inline-block;
     float: right;
     margin-top: 67px;
-    width: 793px;
+    width: 57%;
   }
 
   article img {
-    width: 793px;
+    width: 100%;
   }
 
   /* ###### MEDIA QUERY ##### */
@@ -233,7 +243,6 @@ export const HomeContainer = styled.div`
       margin: 0px;
       margin-top: 65px;
       padding: 20px;
-      width: 70%;
       padding-bottom: 50px;
     }
     h1 {
@@ -263,50 +272,7 @@ export const HomeContainer = styled.div`
     }
   }
 
-  @media (min-width: 1201px) {
-    section {
-      margin-left: 40px;
-      width: 394px;
-    }
-    h1 {
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 800;
-      width: 363px;
-      font-size: 42px;
-      line-height: 58px;
-      color: #282828;
-    }
-    .homeRetangulo {
-      top: 86px;
-      left: 110px;
-      width: 222px;
-      height: 21px;
-    }
 
-    p {
-      line-height: 31px;
-    }
-    article {
-      width: 764px;
-      margin-top: 67px;
-    }
-    article img {
-      width: 100%;
-    }
-  }
 
-  @media (min-width: 1400px) {
-    section {
-      margin-left: 165px;
-    }
-    article {
-      width: 768px;
-    }
-  }
-  @media (min-width: 1500px) {
-    article {
-      width: 793px;
-    }
   }
 `;

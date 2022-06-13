@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DrawerCompContainer = styled.div`
+
   .drawerCompNavbar {
     text-align: center;
   }
