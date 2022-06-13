@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { HomeContainer } from "./style";
 import banner from "../../img/banner.svg";
 
 export const Home = () => {
+  const navigate = useNavigate();
+
+  function GoToPokemons() {
+    navigate("/pokemons");
+  }
   return (
     <HomeContainer>
       <div className="homeContainer">
@@ -16,7 +22,7 @@ export const Home = () => {
             habilidades.
           </p>
           <div className="homeBtn">
-            <button>Veja os pokémons</button>
+            <button onClick={GoToPokemons}>Veja os pokémons</button>
           </div>
         </section>
         <article>

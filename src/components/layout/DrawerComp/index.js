@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 import { DrawerCompContainer } from "./style";
 import logo from "../../../img/logo.png";
-import Pikachu from "../../../img/pikachu.svg"
+import Pikachu from "../../../img/pikachu.svg";
 
 //const pages = ["Início", "Cadastro", "Contato"];
 
@@ -45,7 +45,7 @@ const DrawerComp = () => {
                     </ul>
                   </Container>
                   <div className="drawerCompImg">
-                    <img src={Pikachu} alt="Pikachu"/>
+                    <img src={Pikachu} alt="Pikachu" />
                   </div>
                 </nav>
               </DrawerCompContainer>

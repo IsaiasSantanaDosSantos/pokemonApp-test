@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   align-items: center;
   background: #ffffff;
-  box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
+  box-shadow-bottom: 0px 4px 16px rgba(1, 28, 64, 0.2);
 
   .headerSmalMenu {
     width: 100%;
@@ -38,6 +38,7 @@ export const HeaderContainer = styled.div`
 
   .headerItens {
     list-style: none;
+    padding-left: 15px;
   }
 
   .headerItens a {
