@@ -230,20 +230,23 @@ export const HomeContainer = styled.div`
     section {
       display: block;
       float: left;
-      width: 477px;
-      padding-top: 70px;
-      margin-left: 105px;
+      margin: 0px;
+      margin-top: 65px;
+      padding: 20px;
+      width: 70%;
+      padding-bottom: 50px;
     }
     h1 {
       position: relative;
       font-size: 37px;
       line-height: 46px;
-      width: 342px;
+      width: 312px;
     }
 
     p {
       line-height: 24px;
       margin-top: 18px;
+      width: 321px;
     }
     .homeRetangulo {
       top: 68px;
@@ -253,7 +256,7 @@ export const HomeContainer = styled.div`
     }
     article {
       width: 100%;
-      margin-top: 67px;
+      margin-top: 35px;
     }
     article img {
       width: 100%;
