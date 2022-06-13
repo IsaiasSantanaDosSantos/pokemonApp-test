@@ -8,6 +8,12 @@ export const HeaderContainer = styled.div`
   background: #ffffff;
   box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
 
+  .headerSmalMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #000;
+  }
   .headerConteudo {
     width: 100%;
     display: flex;
@@ -56,6 +62,5 @@ export const HeaderContainer = styled.div`
 
   /*  ### MEDIA QUERY  ### */
   @media (min-width: 993px) {
-
   }
 `;
