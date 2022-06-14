@@ -61,7 +61,5 @@ export const HeaderContainer = styled.div`
     color: #212121;
   }
 
-  /*  ### MEDIA QUERY  ### */
-  @media (min-width: 993px) {
-  }
+  
 `;
