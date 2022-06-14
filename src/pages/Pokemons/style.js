@@ -35,10 +35,17 @@ export const PokemonsContainer = styled.div`
   }
 
   .pokemonsGroupSelect {
+    display: flex;
     margin-top: 36px;
-    padding: 0px 60px;
+    width: 89%;
+    margin: auto;
+    margin-top: 36px;
+    justify-content: start;
   }
-  .pokemonsSelectTipo {
+  .pokemonsSelectTipo,
+  .pokemonsSelectAtaque,
+  .pokemonsSelectDefesa {
+    margin-right: 15px;
     width: 135px;
     height: 21px;
     text-align: center;
@@ -51,6 +58,17 @@ export const PokemonsContainer = styled.div`
     font-size: 16px;
     line-height: 22px;
     color: #171414;
+    display: flex;
+    justify-content: right;
+  }
+  .pokemonsIcons {
+    cursor: pointer;
+  }
+
+  .pokemonsSelectAtaque p,
+  .pokemonsSelectTipo p,
+  .pokemonsSelectDefesa p {
+    margin: auto;
   }
 
   .pokemonsCheckboxTipo {
