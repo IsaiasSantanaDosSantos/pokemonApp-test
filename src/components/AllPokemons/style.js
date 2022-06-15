@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const AllPokemonsContainer = styled.div`
   display: flex;
   width: 91.3%;
+  justify-content: center;
   margin: auto;
   margin-top: 54px;
   padding-botttom: 125px;
@@ -11,7 +12,7 @@ export const AllPokemonsContainer = styled.div`
     display: block;
     width: 162px;
     height: 109.01px;
-    background: linear-gradient(8.46deg, #46a487 -0.58%, #46d7ab 108.38%);
+    /*background: linear-gradient(8.46deg, #46a487 -0.58%, #46d7ab 108.38%);*/
     border-radius: 15px;
     margin-bottom: 49px;
     margin: 18.99px 11px 18.99px 11px;

@@ -1,6 +1,6 @@
 import { AllPokemonsContainer } from "./style";
 import React from "react";
-import bulbasaur from "../../img/bulbasaur.png";
+//import bulbasaur from "../../img/bulbasaur.png";
 
 const AllPokemons = () => {
   return (
@@ -18,7 +18,7 @@ const AllPokemons = () => {
             </div>
           </div>
           <div className="allPokemonsImg">
-            <img src={bulbasaur} alt="bulbasaur" />
+            <img src="" alt="" />
           </div>
         </div>
       </div>
