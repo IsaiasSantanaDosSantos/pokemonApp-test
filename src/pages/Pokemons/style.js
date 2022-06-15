@@ -15,17 +15,24 @@ export const PokemonsContainer = styled.div`
     color: #171414;
   }
 
-  .pokemonsSearch {
+  .pokemonsSearchIcon {
     width: 95%;
+    margin: auto;
+  }
+
+  .pokemonsSearch {
+    width: 100%;
     height: 53px;
     display: flex;
     margin: auto;
     margin-top: 33px;
     background: #ffffff;
     border: 1px solid #f1f1f1;
+    border-right: none;
     box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
-    border-radius: 40px;
-    padding: 16px 31px 15px 31px;
+    border-radius: 40px 40px 40px 40px;
+    padding: 16px 0px 15px 31px;
+    margin-right: 0px;
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
@@ -34,9 +41,18 @@ export const PokemonsContainer = styled.div`
     color: rgba(33, 33, 33, 0.8);
   }
 
+  .pokemonsIcon {
+    width: 20.01px;
+    display: flex;
+    height: 20px;
+    float: right;
+    margin-top: -35px;
+    margin-right: 41.01px;
+  }
+
   .pokemonsGroupSelect {
     display: flex;
-    margin-top: 36px;
+    position: relative;
     width: 89%;
     margin: auto;
     margin-top: 36px;
@@ -73,6 +89,7 @@ export const PokemonsContainer = styled.div`
 
   .pokemonsCheckboxTipo {
     display: block;
+    position: absolute;
     width: 135px;
     height: 162px;
     padding: 18px 32px;

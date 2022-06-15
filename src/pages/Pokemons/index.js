@@ -1,9 +1,11 @@
 import { Container } from "@mui/material";
 import { useState, useSyncExternalStore } from "react";
 import { PokemonsContainer } from "./style";
+import lupa from "./../../img/lupa.png";
 
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import AllPokemons from "../../components/AllPokemons";
 
 export const Pokemons = () => {
   const [tipo, setTipo] = useState(false);
@@ -22,12 +24,17 @@ export const Pokemons = () => {
       <PokemonsContainer>
         <div className="pokemonsContainer">
           <h1>Mais de 250 Pokemons para você escolher o seu favorito</h1>
-          <input
-            className="pokemonsSearch"
-            type="search"
-            name="search"
-            placeholder="Pesquisar pokémon"
-          ></input>
+          <div className="pokemonsSearchIcon">
+            <input
+              className="pokemonsSearch"
+              type="search"
+              name="search"
+              placeholder="Pesquisar pokémon"
+            ></input>
+            <div className="pokemonsIcon">
+              <img src={lupa} alt="Lupa" />
+            </div>
+          </div>
           <div className="pokemonsGroupSelect">
             <div className="pkemonsSelectTipoCheckbox">
               <div name="tipo" className="pokemonsSelectTipo">
@@ -134,21 +141,7 @@ export const Pokemons = () => {
               ) : null}
             </div>
           </div>
-          <div className="pokemonsType">
-            <div className="pokemonsUn">
-              <p className="pokemonsId"></p>
-              <p className="pokemonsName"></p>
-              <div className="pokemonsForceImg">
-                <div className="pokemonsForce">
-                  <p>Bulbasaur</p>
-                  <p>Venenoso</p>
-                </div>
-                <div className="pokemonsImg">
-                  <img src="" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <AllPokemons />
         </div>
       </PokemonsContainer>
     </Container>
