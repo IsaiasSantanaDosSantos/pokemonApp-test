@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import { PokemonsContainer } from "./style";
 import lupa from "./../../img/lupa.png";
 
@@ -18,6 +18,36 @@ export const Pokemons = () => {
   const hiderAtaque = () => setAtaque(false);
   const showDefesa = () => setDefesa(true);
   const hiderDefesa = () => setDefesa(false);
+
+  const [allPokemons, setAllPokemos] = useState([]);
+  const [loadMore, setLoadMore] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=20"
+  );
+
+  const getAllPokemons = async () => {
+    const res = await fetch(loadMore);
+    const data = await res.json();
+
+    setLoadMore(data.next);
+
+    function createPokemonObject(results) {
+      results.forEach(async (pokemon) => {
+        const res = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+        );
+        const data = await res.json();
+
+        setAllPokemos((currentList) => [...currentList, data]);
+      });
+    }
+
+    createPokemonObject(data.results);
+    await console.log(allPokemons);
+  };
+
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
 
   return (
     <Container>
@@ -141,9 +171,19 @@ export const Pokemons = () => {
               ) : null}
             </div>
           </div>
-          <AllPokemons />
+          {allPokemons.map((pokemonsStarts, index) => (
+            <AllPokemons
+              key={index}
+              id={pokemonsStarts.id}
+              image={pokemonsStarts.sprites.other.dream_world.front_default}
+              name={pokemonsStarts.name}
+              specie={pokemonsStarts.species.name}
+              type={pokemonsStarts.types[0].type.name}
+            />
+          ))}
         </div>
       </PokemonsContainer>
+      <button>Carregar mais</button>
     </Container>
   );
 };
