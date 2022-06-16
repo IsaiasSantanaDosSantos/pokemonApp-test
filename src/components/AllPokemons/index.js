@@ -2,23 +2,23 @@ import { AllPokemonsContainer } from "./style";
 import React from "react";
 //import bulbasaur from "../../img/bulbasaur.png";
 
-const AllPokemons = () => {
+const AllPokemons = ({ id, name, image, specie, type }) => {
   return (
     <AllPokemonsContainer>
       <div className="allPokemonsBox">
-        <p className="allPokemonsNumber">#001</p>
-        <p className="allPokemonsName">Bulbasaur</p>
+        <p className="allPokemonsNumber">#{id}</p>
+        <p className="allPokemonsName">{name}</p>
         <div className="allPokemonsDiscritionImg">
           <div className="allPokemonsDiscrition">
             <div className="allPokemonsDiscritionTipo">
-              <p>Planta</p>
+              <p>{type}</p>
             </div>
             <div className="allPokemonsDiscritionPoder">
-              <p>Venenoso</p>
+              <p>{specie}</p>
             </div>
           </div>
           <div className="allPokemonsImg">
-            <img src="" alt="" />
+            <img src={image} alt={name} />
           </div>
         </div>
       </div>
