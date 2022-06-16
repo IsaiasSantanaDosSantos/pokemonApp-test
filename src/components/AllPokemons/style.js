@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const AllPokemonsContainer = styled.div`
   display: flex;
-  width: 91.3%;
+  width: 171.99px;
+  height: 128px;
   margin: auto;
-  margin-top: 54px;
   padding-botttom: 125px;
 
   .allPokemonsBox {
@@ -14,7 +14,7 @@ export const AllPokemonsContainer = styled.div`
     background: linear-gradient(8.46deg, #46a487 -0.58%, #46d7ab 108.38%);
     border-radius: 15px;
     margin-bottom: 49px;
-    margin: 18.99px 11px 18.99px 11px;
+    margin: 9px 5px;
   }
   .allPokemonsNumber {
     float: right;
@@ -91,5 +91,6 @@ export const AllPokemonsContainer = styled.div`
 
   .allPokemonsImg img {
     width: 100%;
+    height: 100%;
   }
 `;
