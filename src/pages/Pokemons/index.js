@@ -7,10 +7,13 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AllPokemons from "../../components/AllPokemons";
 
+
+
 export const Pokemons = () => {
   const [tipo, setTipo] = useState(false);
   const [ataque, setAtaque] = useState(false);
   const [defesa, setDefesa] = useState(false);
+  const [buscarPoekemon, setBuscarPokemon] = useState("");
 
   const showTipo = () => setTipo(true);
   const hiderTipo = () => setTipo(false);
@@ -21,7 +24,7 @@ export const Pokemons = () => {
 
   const [allPokemons, setAllPokemos] = useState([]);
   const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=20"
+    "https://pokeapi.co/api/v2/pokemon?limit=18"
   );
 
   const getAllPokemons = async () => {
@@ -38,16 +41,46 @@ export const Pokemons = () => {
         const data = await res.json();
 
         setAllPokemos((currentList) => [...currentList, data]);
+        //console.log("nome é: " + pokemon.name);
+        /* console.log(
+          "nome é: " +
+            data.name +
+            "\nID é: " +
+            data.id +
+            "\nAltura é: " +
+            data.height +
+            "0 cm" +
+            "\nPeso é: " +
+            data.weight +
+            "\nExperience é: " +
+            data.base_experience +
+            "\nPoder é: " +
+            data.abilities[0].ability.name +
+            "\nForça é: " +
+            data.moves[0].move.name +
+            "\nImagem é: " +
+            data.sprites.other.dream_world.front_default
+        );*/
       });
     }
 
     createPokemonObject(data.results);
-    await console.log(allPokemons);
+    // await console.log(allPokemons);
   };
 
   useEffect(() => {
     getAllPokemons();
   }, []);
+
+  const buscarPokemonLista = () => {
+    /*if (buscarPoekemon === data.name) {
+      console.log(buscarPoekemon);
+    } else {
+      console.log(data);
+      //console.log("Não há pokémon com esse: '" + buscarPoekemon + "'");
+    }
+    */
+  };
 
   return (
     <Container>
@@ -60,6 +93,7 @@ export const Pokemons = () => {
               type="search"
               name="search"
               placeholder="Pesquisar pokémon"
+              onChange={(e) => setBuscarPokemon(e.target.value)}
             ></input>
             <div className="pokemonsIcon">
               <img src={lupa} alt="Lupa" />
@@ -171,7 +205,7 @@ export const Pokemons = () => {
               ) : null}
             </div>
           </div>
-          <div  className="pkemonsAllpokemonsBox">
+          <div className="pkemonsAllpokemonsBox">
             {allPokemons.map((pokemonsStarts, index) => (
               <AllPokemons
                 key={index}
@@ -184,8 +218,10 @@ export const Pokemons = () => {
             ))}
           </div>
         </div>
+        <div className="pkemonsBtn">
+          <button onClick={buscarPokemonLista}>Carregar mais</button>
+        </div>
       </PokemonsContainer>
-      <button>Carregar mais</button>
     </Container>
   );
 };
