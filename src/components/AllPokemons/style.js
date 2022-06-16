@@ -15,7 +15,18 @@ export const AllPokemonsContainer = styled.div`
     border-radius: 15px;
     margin-bottom: 49px;
     margin: 9px 5px;
+    cursor: pointer;
   }
+  .allPokemonsBox:hover {
+    border: 3px solid #468dd7;
+  }
+  .allPokemonsBox:active {
+    .allPokemonsImg img {
+      width: 80%;
+      height: 80%;
+    }
+  }
+
   .allPokemonsNumber {
     float: right;
     margin-top: 9.91px;

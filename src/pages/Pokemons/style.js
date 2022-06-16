@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const PokemonsContainer = styled.div`
   margin-top: 73px;
-  border: 1px solid black;
 
   h1 {
     font-family: "Inter";
@@ -48,6 +47,11 @@ export const PokemonsContainer = styled.div`
     float: right;
     margin-top: -35px;
     margin-right: 41.01px;
+    border: 1px solid;
+  }
+
+  .pokemonsIcon:hover {
+    cursor: pointer;
   }
 
   .pokemonsGroupSelect {
@@ -118,5 +122,15 @@ export const PokemonsContainer = styled.div`
     margin: auto;
     margin-top: 45px;
     margin-bottom: 49px;
+  }
+
+  .pkemonsBtn {
+    padding-bottom: 67px;
+    width: 90%;
+    display: flex;
+    margin: auto;
+  }
+  .pkemonsBtn button {
+    margin: auto;
   }
 `;
