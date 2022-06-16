@@ -171,16 +171,18 @@ export const Pokemons = () => {
               ) : null}
             </div>
           </div>
-          {allPokemons.map((pokemonsStarts, index) => (
-            <AllPokemons
-              key={index}
-              id={pokemonsStarts.id}
-              image={pokemonsStarts.sprites.other.dream_world.front_default}
-              name={pokemonsStarts.name}
-              specie={pokemonsStarts.species.name}
-              type={pokemonsStarts.types[0].type.name}
-            />
-          ))}
+          <div  className="pkemonsAllpokemonsBox">
+            {allPokemons.map((pokemonsStarts, index) => (
+              <AllPokemons
+                key={index}
+                id={pokemonsStarts.id}
+                image={pokemonsStarts.sprites.other.dream_world.front_default}
+                name={pokemonsStarts.name}
+                specie={pokemonsStarts.species.name}
+                type={pokemonsStarts.types[0].type.name}
+              />
+            ))}
+          </div>
         </div>
       </PokemonsContainer>
       <button>Carregar mais</button>

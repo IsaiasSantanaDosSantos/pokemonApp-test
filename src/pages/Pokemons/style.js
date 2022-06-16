@@ -111,4 +111,12 @@ export const PokemonsContainer = styled.div`
   input {
     margin-bottom: 8px;
   }
+  .pkemonsAllpokemonsBox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    margin-top: 45px;
+    margin-bottom: 49px;
+  }
 `;
