@@ -8,10 +8,11 @@ export const ShowPokemonDesckContainer = styled.div`
     top: 0px;
     left: 0px;
     z-index: 10;
-    background: rgb(0, 0, 0, 0.2);
+    background: rgb(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
   .showPokemonDesckContainer {
     position: relative;
@@ -62,7 +63,6 @@ export const ShowPokemonDesckContainer = styled.div`
   }
   .showPokemonDesckBoxImgInfoPoder,
   .showPokemonDesckBoxImgInfoAcao {
-    background: rgb(255, 255, 255, 0.4);
     border-radius: 15px;
     margin-left: 10px;
   }

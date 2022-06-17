@@ -1,17 +1,10 @@
 import { AllPokemonsContainer } from "./style";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const AllPokemons = ({ id, name, image, specie, type }) => {
-  const navigate = useNavigate();
-
-  const openModalShowPokemon = () => {
-    navigate("/showpokemondesk");
-  };
-
   return (
     <AllPokemonsContainer>
-      <div className="allPokemonsBox" onClick={openModalShowPokemon}>
+      <div className="allPokemonsBox">
         <p className="allPokemonsNumber">#{id}</p>
         <p className="allPokemonsName">{name}</p>
         <div className="allPokemonsDiscritionImg">

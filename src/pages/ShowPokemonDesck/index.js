@@ -4,12 +4,13 @@ import pesoImg from "../../img/peso.png";
 import reguaImg from "../../img/alturaImg.png";
 import img from "../../img/bulbasaur.png";
 
-const ShowPokemonDesck = () => {
+const ShowPokemonDesck = ({ onClose = () => {} }) => {
+
   return (
     <ShowPokemonDesckContainer>
-      <div className="showPokemonDesckTodoConteudo">
+      <div className="showPokemonDesckTodoConteudo" onClick={onClose}>
         <div className="showPokemonDesckContainer">
-          <div className="showPokemonDesckClosedBtn">
+          <div className="showPokemonDesckClosedBtn" onClick={onClose}>
             <img src={closeImg} alt="Botão fechar" />
           </div>
           <div className="showPokemonDesckConteudo">
