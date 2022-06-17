@@ -6,14 +6,14 @@ import lupa from "./../../img/lupa.png";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AllPokemons from "../../components/AllPokemons";
-
-
+import ShowPokemonDesck from "../ShowPokemonDesck";
 
 export const Pokemons = () => {
   const [tipo, setTipo] = useState(false);
   const [ataque, setAtaque] = useState(false);
   const [defesa, setDefesa] = useState(false);
   const [buscarPoekemon, setBuscarPokemon] = useState("");
+  const [verPokemon, setVerPokemon] = useState(false);
 
   const showTipo = () => setTipo(true);
   const hiderTipo = () => setTipo(false);
@@ -80,6 +80,11 @@ export const Pokemons = () => {
       //console.log("Não há pokémon com esse: '" + buscarPoekemon + "'");
     }
     */
+  };
+
+  const openModal = () => {
+    console.log("Deu!");
+    setVerPokemon(true);
   };
 
   return (
@@ -205,7 +210,7 @@ export const Pokemons = () => {
               ) : null}
             </div>
           </div>
-          <div className="pkemonsAllpokemonsBox">
+          <div className="pkemonsAllpokemonsBox" onClick={openModal}>
             {allPokemons.map((pokemonsStarts, index) => (
               <AllPokemons
                 key={index}
@@ -217,9 +222,15 @@ export const Pokemons = () => {
               />
             ))}
           </div>
+          {verPokemon ? (
+            <ShowPokemonDesck
+              onClose={() => setVerPokemon(false)}
+            ></ShowPokemonDesck>
+          ) : null}
         </div>
+
         <div className="pkemonsBtn">
-          <button onClick={buscarPokemonLista}>Carregar mais</button>
+          <button>Mostrar pokemon</button>
         </div>
       </PokemonsContainer>
     </Container>
