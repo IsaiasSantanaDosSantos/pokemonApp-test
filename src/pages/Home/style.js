@@ -14,7 +14,7 @@ export const HomeContainer = styled.div`
     float: left;
     width: 465px;
     padding-top: 105px;
-    margin-left: 4%;
+    margin-left: 12%;
   }
   h1 {
     font-family: "Inter";
@@ -79,7 +79,7 @@ transition: 1s;
     display: inline-block;
     float: right;
     margin-top: 67px;
-    width: 57%;
+    width: 50%;
   }
 
   article img {
@@ -96,6 +96,7 @@ transition: 1s;
     section {
       width: 100%;
       margin: auto;
+      margin-left: 12%;
       padding-top: 10px;
       order: 2;
     }
@@ -144,6 +145,7 @@ transition: 1s;
       width: 100%;
       margin: auto;
       margin-top: 0px;
+      margin-left: 12%;
       padding: 10px 10px 30px 10px;
       order: 2;
     }
@@ -193,6 +195,7 @@ transition: 1s;
       width: 100%;
       margin: auto;
       margin-top: 0px;
+      margin-left: 12%;
       padding: 10px 10px 30px 10px;
       order: 2;
     }
@@ -243,6 +246,8 @@ transition: 1s;
       margin: 0px;
       margin-top: 65px;
       padding: 20px;
+
+      padding-left: 12%;
       padding-bottom: 50px;
     }
     h1 {
