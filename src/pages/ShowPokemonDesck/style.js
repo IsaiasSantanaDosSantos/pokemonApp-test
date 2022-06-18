@@ -30,7 +30,6 @@ export const ShowPokemonDesckContainer = styled.div`
     bottom: 0;
     width: 100%;
     height: 371px;
-    backgroung: red;
     display: flex;
   }
 
@@ -304,5 +303,46 @@ export const ShowPokemonDesckContainer = styled.div`
     backgroung: red;
     background: #4bc07a;
     border-radius: 10px;
+  }
+
+  /* ###########  MEDIA QUERY  ########## */
+  @media (max-width: 992px) {
+    .showPokemonDesckContainer {
+      width: 74.56%;
+      height: 410px;
+    }
+  }
+  @media (max-width: 768px) {
+    .showPokemonDesckContainer {
+      width: 90%;
+      height: 583px;
+      display: block;
+    }
+    .showPokemonDesckClosedBtn {
+      top: -35px px;
+    }
+    .showPokemonDesckConteudo {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .showPokemonDesckBoxImgDados {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .showPokemonDesckBoxImg {
+      width: 100%;
+      hieght: 100%;
+      padding: 10px;
+    }
+    .showPokemonDesckBoxDados {
+      width: 100%;
+      height: 65%;
+      border-radius: 0px 0px 8px 8px;
+      padding-top: 3px;
+      margin-top: -9px;
+      margin-left: 0;
+    }
   }
 `;
