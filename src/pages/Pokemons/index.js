@@ -7,12 +7,13 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AllPokemons from "../../components/AllPokemons";
 import ShowPokemonDesck from "../ShowPokemonDesck";
+import Result from "node-xcs/google/Result";
 
 export const Pokemons = () => {
   const [tipo, setTipo] = useState(false);
   const [ataque, setAtaque] = useState(false);
   const [defesa, setDefesa] = useState(false);
-  const [buscarPoekemon, setBuscarPokemon] = useState("");
+  const [buscarPokemon, setBuscarPokemon] = useState("");
   const [verPokemon, setVerPokemon] = useState(false);
 
   const showTipo = () => setTipo(true);
@@ -65,28 +66,42 @@ export const Pokemons = () => {
     }
 
     createPokemonObject(data.results);
-    // await console.log(allPokemons);
+    await console.log(allPokemons);
   };
 
   useEffect(() => {
     getAllPokemons();
   }, []);
-
-  const buscarPokemonLista = () => {
-    /*if (buscarPoekemon === data.name) {
-      console.log(buscarPoekemon);
-    } else {
-      console.log(data);
-      //console.log("Não há pokémon com esse: '" + buscarPoekemon + "'");
+  /*
+  const onChangeHandler = (e) => {
+    console.log("pokemon: ", e.target.value);
+  };
+*/
+  /*
+  const showNewPokemon = async (pokemon) => {
+    try {
+      let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+      const response = await fetch(url);
+      return await response.json();
+    } catch (error) {
+      console.log("error: ", error);
     }
-    */
+    setBuscarPokemon("");
+
+  };
+*/
+  const showNewPokemon = async (pokemon) => {
+    const res = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${buscarPokemon}`
+    );
+
+    console.log("pokemon: ", res);
   };
 
   const openModal = () => {
     console.log("Deu!");
     setVerPokemon(true);
   };
-
   return (
     <Container>
       <PokemonsContainer>
@@ -100,7 +115,7 @@ export const Pokemons = () => {
               placeholder="Pesquisar pokémon"
               onChange={(e) => setBuscarPokemon(e.target.value)}
             ></input>
-            <div className="pokemonsIcon">
+            <div className="pokemonsIcon" onClick={showNewPokemon}>
               <img src={lupa} alt="Lupa" />
             </div>
           </div>
@@ -212,21 +227,40 @@ export const Pokemons = () => {
           </div>
           <div className="pkemonsAllpokemonsBox" onClick={openModal}>
             {allPokemons.map((pokemonsStarts, index) => (
-              <AllPokemons
-                key={index}
-                id={pokemonsStarts.id}
-                image={pokemonsStarts.sprites.other.dream_world.front_default}
-                name={pokemonsStarts.name}
-                specie={pokemonsStarts.species.name}
-                type={pokemonsStarts.types[0].type.name}
-              />
+              <>
+                <AllPokemons
+                  key={index}
+                  id={pokemonsStarts.id}
+                  image={pokemonsStarts.sprites.other.dream_world.front_default}
+                  name={pokemonsStarts.name}
+                  specie={pokemonsStarts.species.name}
+                  type={pokemonsStarts.types[0].type.name}
+                />
+                <div className="modalPokemon">
+                  {verPokemon ? (
+                    <ShowPokemonDesck
+                      onClose={() => setVerPokemon(false)}
+                      onClick={() => {
+                        setAllPokemos(pokemonsStarts.id);
+                      }}
+                      key={index}
+                      id={pokemonsStarts.id}
+                      image={
+                        pokemonsStarts.sprites.other.dream_world.front_default
+                      }
+                      name={pokemonsStarts.name}
+                      specie={pokemonsStarts.species.name}
+                      type={pokemonsStarts.types[0].type.name}
+                      experience={pokemonsStarts.base_experience}
+                      weight={pokemonsStarts.weight}
+                      height={pokemonsStarts.height}
+                      abilities={pokemonsStarts.abilities[0].ability.name}
+                    ></ShowPokemonDesck>
+                  ) : null}
+                </div>
+              </>
             ))}
           </div>
-          {verPokemon ? (
-            <ShowPokemonDesck
-              onClose={() => setVerPokemon(false)}
-            ></ShowPokemonDesck>
-          ) : null}
         </div>
 
         <div className="pkemonsBtn">

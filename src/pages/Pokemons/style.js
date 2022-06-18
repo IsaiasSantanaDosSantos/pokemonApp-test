@@ -15,6 +15,7 @@ export const PokemonsContainer = styled.div`
   }
 
   .pokemonsSearchIcon {
+    position: relative;
     width: 95%;
     margin: auto;
   }
@@ -41,16 +42,20 @@ export const PokemonsContainer = styled.div`
   }
 
   .pokemonsIcon {
-    width: 20.01px;
-    display: flex;
-    height: 20px;
-    float: right;
-    margin-top: -35px;
-    margin-right: 41.01px;
+    position: absolute;
+    width: 25.01px;
+    height: 25px;
+    top: 16px;
+    right: 50px;
   }
 
   .pokemonsIcon:hover {
     cursor: pointer;
+  }
+  .pokemonsIcon img:active {
+    width: 105%;
+    height: 105%;
+    margin-top: -3px;
   }
 
   .pokemonsGroupSelect {

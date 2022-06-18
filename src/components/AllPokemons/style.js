@@ -17,9 +17,7 @@ export const AllPokemonsContainer = styled.div`
     margin: 9px 5px;
     cursor: pointer;
   }
-  .allPokemonsBox:hover {
-    border: 3px solid #468dd7;
-  }
+
   .allPokemonsBox:active {
     .allPokemonsImg img {
       width: 80%;

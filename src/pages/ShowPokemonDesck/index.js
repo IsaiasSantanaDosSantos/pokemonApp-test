@@ -2,10 +2,19 @@ import { ShowPokemonDesckContainer } from "./style";
 import closeImg from "../../img/closeIcon.png";
 import pesoImg from "../../img/peso.png";
 import reguaImg from "../../img/alturaImg.png";
-import img from "../../img/bulbasaur.png";
 
-const ShowPokemonDesck = ({ onClose = () => {} }) => {
-
+const ShowPokemonDesck = ({
+  onClose = () => {},
+  image,
+  name,
+  id,
+  specie,
+  type,
+  experience,
+  weight,
+  height,
+  abilities,
+}) => {
   return (
     <ShowPokemonDesckContainer>
       <div className="showPokemonDesckTodoConteudo" onClick={onClose}>
@@ -16,33 +25,29 @@ const ShowPokemonDesck = ({ onClose = () => {} }) => {
           <div className="showPokemonDesckConteudo">
             <div className="showPokemonDesckBoxImgDados">
               <div className="showPokemonDesckBoxImg">
-                <img src={img} alt="Imagem" />
+                <img src={image} alt={name} />
                 <div className="showPokemonDesckBoxImgInfo">
                   <div className="showPokemonDesckBoxImgInfoPoder">
-                    <p>Fogo</p>
+                    <p>{type}</p>
                   </div>
                   <div className="showPokemonDesckBoxImgInfoAcao">
-                    <p>Voador</p>
+                    <p>{specie}</p>
                   </div>
                 </div>
               </div>
               <div className="showPokemonDesckBoxDados">
                 <div className="showPokemonDesckHeader">
-                  <h1>Nome</h1>
-                  <p>Id</p>
+                  <h1>{name}</h1>
+                  <p>{id}</p>
                 </div>
                 <div className="showPokemonDesckInfo">
-                  <p>
-                    Charizard é um Pokémon bípede dracônico . É principalmente
-                    laranja com uma parte inferior creme do peito até a ponta da
-                    cauda.
-                  </p>
+                  <p>{experience}</p>
                 </div>
                 <div className="showPokemonDesckPesoAlturaPoder">
                   <div className="showPokemonDesckPeso">
                     <div className="showPokemonDesckPesoInfo">
                       <img src={pesoImg} alt="Imagem balança" />
-                      <p>90,5 kg</p>
+                      <p>{weight} kg</p>
                     </div>
                     <div className="showPokemonDesckSobrePeso">
                       <p>Peso</p>
@@ -51,7 +56,7 @@ const ShowPokemonDesck = ({ onClose = () => {} }) => {
                   <div className="showPokemonDesckAltura">
                     <div className="showPokemonDesckAlturaInfo">
                       <img src={reguaImg} alt="Imagem régua" />
-                      <p>1,7 m</p>
+                      <p>{height} m</p>
                     </div>
                     <div className="showPokemonDesckSobreAltura">
                       <p>Altura</p>
@@ -59,7 +64,7 @@ const ShowPokemonDesck = ({ onClose = () => {} }) => {
                   </div>
                   <div className="showPokemonDesckPoder">
                     <div className="showPokemonDesckPoderInfo">
-                      <p>Lança Chamas</p>
+                      <p>{abilities}</p>
                     </div>
                     <div className="showPokemonDesckSobrePoder">
                       <p>Poder principal</p>

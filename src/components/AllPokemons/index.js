@@ -10,10 +10,10 @@ const AllPokemons = ({ id, name, image, specie, type }) => {
         <div className="allPokemonsDiscritionImg">
           <div className="allPokemonsDiscrition">
             <div className="allPokemonsDiscritionTipo">
-              <p>{type}</p>
+              <p>{specie}</p>
             </div>
             <div className="allPokemonsDiscritionPoder">
-              <p>{specie}</p>
+              <p>{type}</p>
             </div>
           </div>
           <div className="allPokemonsImg">

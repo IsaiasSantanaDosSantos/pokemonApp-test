@@ -8,7 +8,7 @@ export const ShowPokemonDesckContainer = styled.div`
     top: 0px;
     left: 0px;
     z-index: 10;
-    background: rgb(0, 0, 0, 0.3);
+    background: #beb8b80a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@ export const ShowPokemonDesckContainer = styled.div`
   }
   .showPokemonDesckClosedBtn {
     position: absolute;
-    top: 0px;
+    top: -32px;
     right: 0;
     cursor: pointer;
   }
