@@ -47,7 +47,6 @@ export const PokemonsContainer = styled.div`
     float: right;
     margin-top: -35px;
     margin-right: 41.01px;
-    border: 1px solid;
   }
 
   .pokemonsIcon:hover {
@@ -132,5 +131,37 @@ export const PokemonsContainer = styled.div`
   }
   .pkemonsBtn button {
     margin: auto;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 28px;
+      line-height: 37px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    h1 {
+      font-size: 23px;
+      line-height: 29px;
+    }
+    .pokemonsGroupSelect {
+      position: relative;
+      width: 100%;
+      margin-top: 36px;
+      justify-content: center;
+    }
+    .pokemonsSelectTipo,
+    .pokemonsSelectAtaque,
+    .pokemonsSelectDefesa {
+      width: 100px;
+    }
+    .pokemonsCheckboxTipo {
+      width: 100px;
+      height: 144px;
+      padding: 15px;
+    }
   }
 `;
