@@ -119,7 +119,7 @@ export const PokemonsContainer = styled.div`
   input {
     margin-bottom: 8px;
   }
-  .pkemonsAllpokemonsBox {
+  .pokemonsAllpokemonsBox {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
@@ -128,14 +128,35 @@ export const PokemonsContainer = styled.div`
     margin-bottom: 49px;
   }
 
-  .pkemonsBtn {
+  .pokemonsBtn {
     padding-bottom: 67px;
     width: 90%;
     display: flex;
     margin: auto;
   }
-  .pkemonsBtn button {
+  .pokemonsBtn button {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    align-items: center;
+    text-align: center;
+    background: #48d0b0;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+    width: 231px;
+    height: 66px;
+    border: none;
     margin: auto;
+    cursor: pointer;
+  }
+  .pokemonsBtn button:active {
+    border: 1px solid #48d0b0;
+    color: #48d0b0;
+    background: #ffffff;
+    transition: 1s;
   }
 
   @media (max-width: 768px) {

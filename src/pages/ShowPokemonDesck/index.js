@@ -15,11 +15,7 @@ const ShowPokemonDesck = ({
   abilities,
   onClose = () => {},
 }) => {
-  /*
-  const test = () => {
-    console.log("botão fechar acionado!");
-  };
-  */
+  const style = `showPokemonDesckBoxImg ${type}`;
   return (
     <ShowPokemonDesckContainer>
       <div className="showPokemonDesckTodoConteudo" onClick={onClose}>
@@ -29,7 +25,7 @@ const ShowPokemonDesck = ({
           </div>
           <div className="showPokemonDesckConteudo">
             <div className="showPokemonDesckBoxImgDados">
-              <div className="showPokemonDesckBoxImg">
+              <div className={style}>
                 <img src={image} alt={name} />
                 <div className="showPokemonDesckBoxImgInfo">
                   <div className="showPokemonDesckBoxImgInfoPoder">
@@ -43,7 +39,7 @@ const ShowPokemonDesck = ({
               <div className="showPokemonDesckBoxDados">
                 <div className="showPokemonDesckHeader">
                   <h1>{name}</h1>
-                  <p>{id}</p>
+                  <p>#{id}</p>
                 </div>
                 <div className="showPokemonDesckInfo">
                   <p>{experience}</p>

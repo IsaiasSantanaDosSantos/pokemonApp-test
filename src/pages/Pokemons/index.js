@@ -7,7 +7,6 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AllPokemons from "../../components/AllPokemons";
 import ShowPokemonDesck from "../ShowPokemonDesck";
-import Result from "node-xcs/google/Result";
 
 export const Pokemons = () => {
   const [tipo, setTipo] = useState(false);
@@ -23,7 +22,7 @@ export const Pokemons = () => {
   const showDefesa = () => setDefesa(true);
   const hiderDefesa = () => setDefesa(false);
 
-  const [allPokemons, setAllPokemos] = useState([]);
+  const [pokemonsList, setPokemonsList] = useState([]);
   const [loadMore, setLoadMore] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=18"
   );
@@ -41,7 +40,7 @@ export const Pokemons = () => {
         );
         const data = await res.json();
 
-        setAllPokemos((currentList) => [...currentList, data]);
+        setPokemonsList((currentList) => [...currentList, data]);
         //console.log("nome é: " + pokemon.name);
         /* console.log(
           "nome é: " +
@@ -66,43 +65,25 @@ export const Pokemons = () => {
     }
 
     createPokemonObject(data.results);
-    await console.log(allPokemons);
+
+    // await console.log(pokemonsList);
+  };
+
+  const showNewPokemon = async (pokemon) => {
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    const response = await fetch(url);
+    return await response.json();
   };
 
   useEffect(() => {
     getAllPokemons();
   }, []);
-  /*
-  const onChangeHandler = (e) => {
-    console.log("pokemon: ", e.target.value);
-  };
-*/
-  /*
-  const showNewPokemon = async (pokemon) => {
-    try {
-      let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-      const response = await fetch(url);
-      return await response.json();
-    } catch (error) {
-      console.log("error: ", error);
-    }
-    setBuscarPokemon("");
 
+  const openModal = (index) => {
+    //console.log("Deu!");
+    setVerPokemon(index);
   };
-*/
-  const showNewPokemon = async (pokemon) => {
-    const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${buscarPokemon}`
-    );
 
-    console.log("pokemon: ", res);
-  };
-  /*
-  const openModal = () => {
-    console.log("Deu!");
-    setVerPokemon(true);
-  };
-  */
   return (
     <Container>
       <PokemonsContainer>
@@ -119,6 +100,34 @@ export const Pokemons = () => {
             <div className="pokemonsIcon" onClick={showNewPokemon}>
               <img src={lupa} alt="Lupa" />
             </div>
+            {/* TESTE
+            {pokemonsList.map((pokemons, index) => (
+              <>
+                {buscarPokemon === pokemons.name ? (
+                  <ShowPokemonDesck
+                    onClose={() => setVerPokemon(false)}
+                    onClick={() => {
+                      openModal(index.id);
+                    }}
+                    key={index}
+                    id={pokemons.id}
+                    image={pokemons.sprites.other.dream_world.front_default}
+                    name={pokemons.name}
+                    specie={pokemons.species.name}
+                    type={pokemons.types[0].type.name}
+                    experience={pokemons.base_experience}
+                    weight={pokemons.weight}
+                    height={pokemons.height}
+                    abilities={pokemons.abilities[0].ability.name}
+                  ></ShowPokemonDesck>
+                ) : (
+                  console.log(
+                    `O POKÉMON ${buscarPokemon} NÃO FOI ENCONTRADO, \nverifique se o nome está correto!`
+                  )
+                )}
+              </>
+            ))}
+             FIM TESTE */}
           </div>
           <div className="pokemonsGroupSelect">
             <div className="pkemonsSelectTipoCheckbox">
@@ -227,49 +236,47 @@ export const Pokemons = () => {
             </div>
           </div>
           <div
-            className="pkemonsAllpokemonsBox"
+            className="pokemonsAllpokemonsBox"
             onClick={() => {
               setVerPokemon(true);
             }}
           >
-            {allPokemons.map((pokemonsStarts, index) => (
-              <>
-                <AllPokemons
-                  key={index}
-                  id={pokemonsStarts.id}
-                  image={pokemonsStarts.sprites.other.dream_world.front_default}
-                  name={pokemonsStarts.name}
-                  specie={pokemonsStarts.species.name}
-                  type={pokemonsStarts.types[0].type.name}
-                />
-              </>
-            ))}
-          </div>
-        </div>
-        {allPokemons.map((pokemonsStarts, index) => (
-          <>
-            {verPokemon ? (
-              <ShowPokemonDesck
-                onClose={() => setVerPokemon(false)}
-                onClick={() => {
-                  setAllPokemos(pokemonsStarts);
-                }}
+            {pokemonsList.map((pokemonsStarts, index) => (
+              <AllPokemons
                 key={index}
                 id={pokemonsStarts.id}
                 image={pokemonsStarts.sprites.other.dream_world.front_default}
                 name={pokemonsStarts.name}
                 specie={pokemonsStarts.species.name}
                 type={pokemonsStarts.types[0].type.name}
-                experience={pokemonsStarts.base_experience}
-                weight={pokemonsStarts.weight}
-                height={pokemonsStarts.height}
-                abilities={pokemonsStarts.abilities[0].ability.name}
+              />
+            ))}
+          </div>
+        </div>
+        {pokemonsList.map((pokemons, index) => (
+          <>
+            {verPokemon ? (
+              <ShowPokemonDesck
+                onClose={() => setVerPokemon(false)}
+                onClick={() => {
+                  openModal(index.id);
+                }}
+                key={index}
+                id={pokemons.id}
+                image={pokemons.sprites.other.dream_world.front_default}
+                name={pokemons.name}
+                specie={pokemons.species.name}
+                type={pokemons.types[0].type.name}
+                experience={pokemons.base_experience}
+                weight={pokemons.weight}
+                height={pokemons.height}
+                abilities={pokemons.abilities[0].ability.name}
               ></ShowPokemonDesck>
             ) : null}
           </>
         ))}
-        <div className="pkemonsBtn">
-          <button>Mostrar pokemon</button>
+        <div className="pokemonsBtn">
+          <button onClick={() => getAllPokemons()}>Mostrar pokemon</button>
         </div>
       </PokemonsContainer>
     </Container>
