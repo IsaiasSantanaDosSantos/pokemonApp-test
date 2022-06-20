@@ -276,7 +276,7 @@ export const Pokemons = () => {
           </>
         ))}
         <div className="pokemonsBtn">
-          <button onClick={() => getAllPokemons()}>Mostrar pokemon</button>
+          <button onClick={() => getAllPokemons()}>Mostrar mais pokemon</button>
         </div>
       </PokemonsContainer>
     </Container>
