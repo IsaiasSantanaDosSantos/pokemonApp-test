@@ -4,7 +4,6 @@ import pesoImg from "../../img/peso.png";
 import reguaImg from "../../img/alturaImg.png";
 
 const ShowPokemonDesck = ({
-  onClose = () => {},
   image,
   name,
   id,
@@ -14,7 +13,13 @@ const ShowPokemonDesck = ({
   weight,
   height,
   abilities,
+  onClose = () => {},
 }) => {
+  /*
+  const test = () => {
+    console.log("botão fechar acionado!");
+  };
+  */
   return (
     <ShowPokemonDesckContainer>
       <div className="showPokemonDesckTodoConteudo" onClick={onClose}>
