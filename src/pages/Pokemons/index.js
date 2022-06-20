@@ -97,11 +97,12 @@ export const Pokemons = () => {
 
     console.log("pokemon: ", res);
   };
-
+  /*
   const openModal = () => {
     console.log("Deu!");
     setVerPokemon(true);
   };
+  */
   return (
     <Container>
       <PokemonsContainer>
@@ -225,7 +226,12 @@ export const Pokemons = () => {
               ) : null}
             </div>
           </div>
-          <div className="pkemonsAllpokemonsBox" onClick={openModal}>
+          <div
+            className="pkemonsAllpokemonsBox"
+            onClick={() => {
+              setVerPokemon(true);
+            }}
+          >
             {allPokemons.map((pokemonsStarts, index) => (
               <>
                 <AllPokemons
@@ -236,33 +242,32 @@ export const Pokemons = () => {
                   specie={pokemonsStarts.species.name}
                   type={pokemonsStarts.types[0].type.name}
                 />
-                <div className="modalPokemon">
-                  {verPokemon ? (
-                    <ShowPokemonDesck
-                      onClose={() => setVerPokemon(false)}
-                      onClick={() => {
-                        setAllPokemos(pokemonsStarts.id);
-                      }}
-                      key={index}
-                      id={pokemonsStarts.id}
-                      image={
-                        pokemonsStarts.sprites.other.dream_world.front_default
-                      }
-                      name={pokemonsStarts.name}
-                      specie={pokemonsStarts.species.name}
-                      type={pokemonsStarts.types[0].type.name}
-                      experience={pokemonsStarts.base_experience}
-                      weight={pokemonsStarts.weight}
-                      height={pokemonsStarts.height}
-                      abilities={pokemonsStarts.abilities[0].ability.name}
-                    ></ShowPokemonDesck>
-                  ) : null}
-                </div>
               </>
             ))}
           </div>
         </div>
-
+        {allPokemons.map((pokemonsStarts, index) => (
+          <>
+            {verPokemon ? (
+              <ShowPokemonDesck
+                onClose={() => setVerPokemon(false)}
+                onClick={() => {
+                  setAllPokemos(pokemonsStarts);
+                }}
+                key={index}
+                id={pokemonsStarts.id}
+                image={pokemonsStarts.sprites.other.dream_world.front_default}
+                name={pokemonsStarts.name}
+                specie={pokemonsStarts.species.name}
+                type={pokemonsStarts.types[0].type.name}
+                experience={pokemonsStarts.base_experience}
+                weight={pokemonsStarts.weight}
+                height={pokemonsStarts.height}
+                abilities={pokemonsStarts.abilities[0].ability.name}
+              ></ShowPokemonDesck>
+            ) : null}
+          </>
+        ))}
         <div className="pkemonsBtn">
           <button>Mostrar pokemon</button>
         </div>
