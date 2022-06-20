@@ -76,7 +76,7 @@ export const ShowPokemonDesckContainer = styled.div`
     align-items: center;
     text-align: center;
     padding: 5px 15px;
-    color: #ffffff;
+    color: #171414;
   }
 
   .showPokemonDesckBoxDados {
@@ -344,5 +344,36 @@ export const ShowPokemonDesckContainer = styled.div`
       margin-top: -9px;
       margin-left: 0;
     }
+  }
+
+  .rock {
+    background-color: rgb(148, 81, 81);
+  }
+  .ghost {
+    background-color: rgb(247, 247, 247);
+  }
+  .electric {
+    background-color: rgb(255, 255, 161);
+  }
+  .bug {
+    background-color: #f6d6a7;
+  }
+  .poison {
+    background-color: #e0a7f6;
+  }
+  .normal {
+    background-color: #f4f4f4;
+  }
+  .fairy {
+    background-color: rgba(255, 192, 203, 0.863);
+  }
+  .fire {
+    background-color: #fbe3df;
+  }
+  .grass {
+    background-color: #e2f9e1;
+  }
+  .water {
+    background-color: #e0f1fd;
   }
 `;

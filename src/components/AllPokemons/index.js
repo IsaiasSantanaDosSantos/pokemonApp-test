@@ -2,9 +2,11 @@ import { AllPokemonsContainer } from "./style";
 import React from "react";
 
 const AllPokemons = ({ id, name, image, specie, type }) => {
+  const style = `allPokemonsBox ${type}`;
+
   return (
     <AllPokemonsContainer>
-      <div className="allPokemonsBox">
+      <div className={style}>
         <p className="allPokemonsNumber">#{id}</p>
         <p className="allPokemonsName">{name}</p>
         <div className="allPokemonsDiscritionImg">
