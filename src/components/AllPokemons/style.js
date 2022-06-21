@@ -47,7 +47,7 @@ export const AllPokemonsContainer = styled.div`
     line-height: 14px;
     display: flex;
     align-items: center;
-    color: #ffffff;
+    color: #645c5c;
     margin-left: 16.73px;
     margin-top: 0.99px;
   }
@@ -86,7 +86,6 @@ export const AllPokemonsContainer = styled.div`
     display: flex;
     align-items: center;
     text-align: center;
-    color: #ffffff;
     margin-top: -11px;
   }
 
