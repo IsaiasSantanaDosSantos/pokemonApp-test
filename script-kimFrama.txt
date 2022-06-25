@@ -9,7 +9,7 @@ import SelectSection from "../../components/layout/SelectSection";
 export const Pokemons = () => {
   // const [buscarPokemon, setBuscarPokemon] = useState("");
   // const [verPokemon, setVerPokemon] = useState([]); //(pokeInfo)
-  const [listPokemons, setListPokemons] = useState([]);
+  const [listPokemons, setListPokemons] = useState();
   // const [pokemonsList, setPokemonsList] = useState([]); //(pokemons)
   // const [loadMore, setLoadMore] = useState(
   //   "https://pokeapi.co/api/v2/pokemon?limit=18"
@@ -17,18 +17,17 @@ export const Pokemons = () => {
   console.log("listPokemons", listPokemons);
   const [modal, setModal] = useState(false);
 
-  const GetAllPokemons = async () => {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=18`);
-    console.log("response:", res);
-    const data = await res.json();
-    setListPokemons(data.results);
-    console.log(data);
-  };
-
   useEffect(() => {
-    GetAllPokemons();
-  }, []);
-
+    if (listPokemons === undefined) {
+      const GetAllPokemons = async () => {
+        const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+        console.log("response:", res);
+        const data = await res.json();
+        setListPokemons(data.results);
+        GetAllPokemons();
+      };
+    }
+  }, [listPokemons]);
   // setLoadMore(data.next);
 
   // function createPokemonObject(results) {
@@ -105,17 +104,17 @@ Buscar um pokémon na lista da api
           <SelectSection />
           <div>
             {listPokemons.map(
-              ({ id, sprites, name, species, types }, index) => (
+              ({ id, name, species, types, sprites }, index) => (
                 <AllPokemons
                   onClick={() => {
                     setModal(true);
                   }}
                   key={index}
                   id={id}
-                  image={sprites}
+                  image={sprites.other.dream_world.front_default}
                   name={name}
-                  specie={species}
-                  type={types}
+                  specie={species.name}
+                  type={types[0].type.name}
                 />
               )
             )}
