@@ -7,77 +7,45 @@ import ShowPokemonDesck from "../ShowPokemonDesck";
 import SelectSection from "../../components/layout/SelectSection";
 
 export const Pokemons = () => {
-  // const [buscarPokemon, setBuscarPokemon] = useState("");
-  // const [verPokemon, setVerPokemon] = useState([]); //(pokeInfo)
-  const [listPokemons, setListPokemons] = useState([]);
-  // const [pokemonsList, setPokemonsList] = useState([]); //(pokemons)
-  // const [loadMore, setLoadMore] = useState(
-  //   "https://pokeapi.co/api/v2/pokemon?limit=18"
-  // );
-  console.log("listPokemons", listPokemons);
-  const [modal, setModal] = useState(false);
+  const [buscarPokemon, setBuscarPokemon] = useState("");
+  const [verPokemon, setVerPokemon] = useState(false);
 
-  const GetAllPokemons = async () => {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=18`);
-    console.log("response:", res);
+  const [allPokemons, setAllPokemons] = useState([]);
+
+  const [loadMore, setLoadMore] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=18"
+  );
+
+  const getAllPokemons = async () => {
+    const res = await fetch(loadMore);
     const data = await res.json();
-    setListPokemons(data.results);
-    console.log(data);
+
+    setLoadMore(data.next);
+
+    function createPokemonObject(results) {
+      results.forEach(async (pokemon) => {
+        const res = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+        );
+        const data = await res.json();
+        setAllPokemons((currentList) => [...currentList, data]);
+        await allPokemons.sort((a, b) => a.id - b.id);
+      });
+    }
+    createPokemonObject(data.results);
+    console.log(allPokemons);
   };
 
-  useEffect(() => {
-    GetAllPokemons();
-  }, []);
-
-  // setLoadMore(data.next);
-
-  // function createPokemonObject(results) {
-  //   results.forEach(async (pokemon) => {
-  //     const res = await fetch(
-  //       `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
-  //     );
-  //     const data = await res.json();
-
-  //     setPokemonsList((currentList) => [...currentList, data]);
-  //     //console.log("nome é: " + pokemon.name);
-  //     /* console.log(
-  //       "nome é: " +
-  //         data.name +
-  //         "\nID é: " +
-  //         data.id +
-  //         "\nAltura é: " +
-  //         data.height +
-  //         "0 cm" +
-  //         "\nPeso é: " +
-  //         data.weight +
-  //         "\nExperience é: " +
-  //         data.base_experience +
-  //         "\nPoder é: " +
-  //         data.abilities[0].ability.name +
-  //         "\nForça é: " +
-  //         data.moves[0].move.name +
-  //         "\nImagem é: " +
-  //         data.sprites.other.dream_world.front_default
-  //     );*/
-  //   });
-  // }
-
-  // createPokemonObject(data.results);
-
-  // await console.log(pokemonsList);
-  // };
+  const showNewPokemon = async (buscarPokemon) => {
+    let url = `https://pokeapi.co/api/v2/pokemon/${buscarPokemon}`;
+    const response = await fetch(url);
+    return await response.json();
+  };
 
   // useEffect(() => {
   //   getAllPokemons();
-  //   setVerPokemon(pokemonsList);
   // }, []);
 
-  // console.log(pokemonsList);
-  /*
-  const selectPokemon = (id) => {
-    setVerPokemon(id);
-  };
-  */
   //console.log(buscarPokemon);
 
   /*
@@ -96,38 +64,38 @@ Buscar um pokémon na lista da api
               type="search"
               name="search"
               placeholder="Pesquisar pokémon"
-              // onChange={(e) => setBuscarPokemon(e.target.value)}
+              onChange={(e) => setBuscarPokemon(e.target.value)}
             ></input>
-            <div className="pokemonsIcon">
+            <div className="pokemonsIcon" onClick={showNewPokemon}>
               <img src={lupa} alt="Lupa" />
             </div>
           </div>
           <SelectSection />
-          <div>
-            {listPokemons.map(
-              ({ id, sprites, name, species, types }, index) => (
-                <AllPokemons
-                  onClick={() => {
-                    setModal(true);
-                  }}
-                  key={index}
-                  id={id}
-                  image={sprites}
-                  name={name}
-                  specie={species}
-                  type={types}
-                />
-              )
-            )}
+          <div
+            className="pokemonsAllpokemonsBox"
+            onClick={() => {
+              setVerPokemon(true);
+            }}
+          >
+            {allPokemons.map((pokemonsStarts, index) => (
+              <AllPokemons
+                key={index}
+                id={pokemonsStarts.id}
+                image={pokemonsStarts.sprites.other.dream_world.front_default}
+                name={pokemonsStarts.name}
+                specie={pokemonsStarts.species.name}
+                type={pokemonsStarts.types[0].type.name}
+              />
+            ))}
           </div>
         </div>
-
-        {/* {pokemonsList.map((pokemons) => (
+        {allPokemons.map((pokemons, index) => (
           <>
-            {modal && (
+            {verPokemon ? (
               <ShowPokemonDesck
-                onClose={() => setModal(false)}
-                key={pokemons.id}
+                onClose={() => setVerPokemon(false)}
+                onClick={() => setAllPokemons(pokemons.id)}
+                key={index.id}
                 id={pokemons.id}
                 image={pokemons.sprites.other.dream_world.front_default}
                 name={pokemons.name}
@@ -138,11 +106,11 @@ Buscar um pokémon na lista da api
                 height={pokemons.height}
                 abilities={pokemons.abilities[0].ability.name}
               ></ShowPokemonDesck>
-            )}
+            ) : null}
           </>
-        ))} */}
+        ))}
         <div className="pokemonsBtn">
-          {/* <button onClick={() => getAllPokemons()}>Carregar mais</button> */}
+          <button onClick={() => getAllPokemons()}>Mostrar mais pokemon</button>
         </div>
       </PokemonsContainer>
     </Container>
