@@ -10,7 +10,8 @@ export const Pokemons = () => {
   const [buscarPokemon, setBuscarPokemon] = useState("");
   const [verPokemon, setVerPokemon] = useState(false);
 
-  const [pokemonsList, setPokemonsList] = useState([]);
+  const [allPokemons, setAllPokemons] = useState([]);
+
   const [loadMore, setLoadMore] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=18"
   );
@@ -27,34 +28,12 @@ export const Pokemons = () => {
           `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
         );
         const data = await res.json();
-
-        setPokemonsList((currentList) => [...currentList, data]);
-        //console.log("nome é: " + pokemon.name);
-        /* console.log(
-          "nome é: " +
-            data.name +
-            "\nID é: " +
-            data.id +
-            "\nAltura é: " +
-            data.height +
-            "0 cm" +
-            "\nPeso é: " +
-            data.weight +
-            "\nExperience é: " +
-            data.base_experience +
-            "\nPoder é: " +
-            data.abilities[0].ability.name +
-            "\nForça é: " +
-            data.moves[0].move.name +
-            "\nImagem é: " +
-            data.sprites.other.dream_world.front_default
-        );*/
+        setAllPokemons((currentList) => [...currentList, data]);
+        await allPokemons.sort((a, b) => a.id - b.id);
       });
     }
-
     createPokemonObject(data.results);
-
-    // await console.log(pokemonsList);
+    console.log(allPokemons);
   };
 
   const showNewPokemon = async (buscarPokemon) => {
@@ -63,13 +42,13 @@ export const Pokemons = () => {
     return await response.json();
   };
 
-  useEffect(() => {
-    getAllPokemons();
-  }, []);
+  // useEffect(() => {
+  //   getAllPokemons();
+  // }, []);
 
   //console.log(buscarPokemon);
 
-/*
+  /*
 Difculdade:
 Para selecionar apenas um pokémon ao clicar para ver no modal;
 Buscar um pokémon na lista da api
@@ -98,7 +77,7 @@ Buscar um pokémon na lista da api
               setVerPokemon(true);
             }}
           >
-            {pokemonsList.map((pokemonsStarts, index) => (
+            {allPokemons.map((pokemonsStarts, index) => (
               <AllPokemons
                 key={index}
                 id={pokemonsStarts.id}
@@ -110,13 +89,13 @@ Buscar um pokémon na lista da api
             ))}
           </div>
         </div>
-        {pokemonsList.map((pokemons, index) => (
+        {allPokemons.map((pokemons, index) => (
           <>
             {verPokemon ? (
               <ShowPokemonDesck
                 onClose={() => setVerPokemon(false)}
-                onClick={() => setPokemonsList(pokemons.id)}
-                key={index}
+                onClick={() => setAllPokemons(pokemons.id)}
+                key={index.id}
                 id={pokemons.id}
                 image={pokemons.sprites.other.dream_world.front_default}
                 name={pokemons.name}

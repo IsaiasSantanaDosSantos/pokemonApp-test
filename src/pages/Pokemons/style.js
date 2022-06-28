@@ -88,8 +88,8 @@ export const PokemonsContainer = styled.div`
     background: #48d0b0;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
-    width: 231px;
-    height: 66px;
+    width: 281px;
+    height: 55px;
     border: none;
     margin: auto;
     cursor: pointer;
